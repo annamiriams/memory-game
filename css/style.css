@@ -1,0 +1,37 @@
+body {
+    background-color: #6996BF;
+}
+
+button {
+    width: 80px;
+    height: 50px;
+    border: 0px;
+    border-radius: 100%;
+    background-color: #C7CAC4;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin: 40px;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width: 800px;
+    margin: 55px 40px;
+}
+
+.card {
+    width: 20%;
+    aspect-ratio: 1/1;
+    border: 1px solid #96AFC5;
+    border-radius: 10%;
+    font-size: 30px;
+    text-align: center;
+    
+}
