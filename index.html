@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,36 +10,140 @@
 </head>
 
 <body>
-    <h1>Memory Game</h1>
-    <section class="buttons">
-        <button id="helpButton">Help</button>
-        <button id="resetButton">Reset</button>
-        <button id="playButton">Play</button>
-        
+    <header>
+        <h1>Memory Game</h1>
+        <p id="results-display"></p>
+    </header>
+
+    <!-- maybe have a larger parent container to also house the two icons? -->
+    <section>
+        <div class="buttons">
+            <button id="helpButton">Help</button>
+            <button id="resetButton">Reset</button>
+            <button id="playButton">Play</button>
+            <button id="turns">Turns</button>
+            <button id="matches">Matches</button>
+        </div>
     </section>
-    
-    <section class="tallies">
-        <div id="turns"></div>
-        <div id="matches"></div>
+
+    <section>
+        <!-- maybe will need to add IDs to each card to randomize them later? look back at rock paper scissors and the Math method for ideas -->
+        <div class="board">
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/0xEnnXn.jpeg"
+                    alt="An illustration of a Franklin's Gull from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+                <!-- https://wingsplain.com/wp-content/uploads/Franklins-Gull.png -->
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/0xEnnXn.jpeg"
+                    alt="An illustration of a Franklin's Gull from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/t7sxdaL.jpeg"
+                    alt="An illustration of a Peregrine Falcon from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+                <!-- https://www.gamescapesf.store/product/wingspan/7383 -->
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/t7sxdaL.jpegsvg"
+                    alt="An illustration of a Peregrine Falcon from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/BmJiVkp.png"
+                    alt="An illustration of an Eastern Phoebe from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+                <!-- https://wingspan.rulepop.com/ -->
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/BmJiVkp.png"
+                    alt="An illustration of an Eastern Phoebe from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/1Yt9CJI.jpeg"
+                    alt="An illustration of a Spotted Sandpiper from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+                <!-- https://stonemaiergames.com/games/wingspan/rules/ -->
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/1Yt9CJI.jpeg"
+                    alt="An illustration of a Spotted Sandpiper from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/4A3EKZN.png"
+                    alt="An illustration of a Gray Catbird from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+                <!-- https://www.gamersdecide.com/articles/wingspan-best-birds -->
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/4A3EKZN.png"
+                    alt="An illustration of a Gray Catbird from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/v9od7Fa.jpeg"
+                    alt="An illustration of a Killdeer from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+                <!-- https://www.cbr.com/wingspan-best-cards/ -->
+            </div>
+
+            <div class="card">
+                <img class="cardBack" src="https://i.imgur.com/v9od7Fa.jpeg"
+                    alt="An illustration of a Killdeer from the board game Wingspan.">
+                <img class="cardFront"
+                    src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+                    alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
+            </div>
+        </div>
     </section>
+</body>
 
-    <section class="board">
-        <img class="card" id="0" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="1" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="2" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="3" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="4" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="5" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="6" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="7" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="8" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="9" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="10" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
-        <img class="card" id="11" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png" alt="Wingspan">
+</html>
 
 
-        <!-- first try below, but now trying to add images and started above -->
-        <!-- <div class="card" id="0">card</div>
+
+
+
+<!-- trash-ish below -->
+
+<!-- first try below -->
+<!-- <div class="card" id="0">card</div>
         <div class="card" id="1">card</div>
         <div class="card" id="2">card</div>
         <div class="card" id="3">card</div>
@@ -50,6 +155,28 @@
         <div class="card" id="9">card</div>
         <div class="card" id="10">card</div>
         <div class="card" id="11">card</div> -->
-    </section>
-</body>
-</html>
+
+<!-- <img class="card" id="0" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="1" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="2" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="3" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="4" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="5" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="6" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="7" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="8" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="9" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="10" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan">
+        <img class="card" id="11" src="https://styles.redditmedia.com/t5_xrgib/styles/communityIcon_dfvqzfc9bbn51.png"
+            alt="Wingspan"> -->

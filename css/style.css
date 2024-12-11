@@ -1,5 +1,13 @@
+/* I already can't remember where I saw this suggested, but I think I'll get rid of it? I'm too tired to commit to anything right now. */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #6996BF;
+    display: flex;
+    background: #6996BF;
 }
 
 button {
@@ -12,26 +20,63 @@ button {
 
 .buttons {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 10px;
     margin: 40px;
 }
 
 .board {
+    width: 700px;
+    height: 700px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    width: 800px;
-    margin: 55px 40px;
+    position: absolute;
+    /* W3 CSS Top/Left Properties: If position absolute:
+        "The top property sets the top edge of an element to a unit above/below the top edge of its nearest positioned ancestor. 
+        "The left property sets the left edge of an element to a unit to the left of the left edge of its nearest positioned ancestor." */
+    top: 50%;
+    left: 50%;
+    /* SheCodes: "The transform: translate(-50%, -50%); CSS property is used to move an element horizontally and vertically by a specified percentage of its own size. It is often used to center an element both horizontally and vertically within its parent container. */
+    transform: translate(-50%, -50%);
 }
 
 .card {
-    width: 20%;
+    /* relative position of the parent element allows us to position the children absolutely, thereby stacking the elements on top of each other (see position: absolute in face class) */
+    position: relative;
+    /* this got the 4x3 grid */
+    width: 25%;
+    /* allows for a 3D transition when cards are clicked */
+    transform-style: preserve-3d;
+    /* shorthand for various transition properties that have been combined into one */
+    transition: all 0.8s ease;
+}
+
+/* this provides a visual effect when the card is clicked (by applying a .2s transition to its size). right now it only seems to be doing it on the transition from back to front, not front to back, but that should be fine because during game play, the cards should always flip back over on their own. somehow this actually stopped working and I'm not sure why. Take out if that's still true by the end. */
+.card:active {
+    transform: scale(1);
+    transition: transform .2s;
+}
+
+.cardFront, 
+.cardBack {
+    width: 90%;
+    /* to make the cards square (in order to keep the card shape of the Wingspan image */
     aspect-ratio: 1/1;
     border: 1px solid #96AFC5;
     border-radius: 10%;
-    font-size: 30px;
-    text-align: center;
-    
+    /* relative position of the parent element allows us to position the children absolutely, thereby stacking the elements on top of each other (see position: absolute in face class) */
+    position: absolute;
+    /* controls the reverse side of just the respective element; keeping either cardFront or cardBack visible will cause the image to flicker during the 3D transition */
+    backface-visibility: hidden;
+}
+
+.cardBack {
+    /* I still don't really understand why this and the .card.flip are needed, but they both are... */
+    transform: rotateY(180deg);
+}
+
+.card.flip {
+    /* this rotates the card 180deg */
+    transform: rotateY(180deg);
 }
