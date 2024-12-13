@@ -15,7 +15,8 @@ button {
     height: 50px;
     border: 0px;
     border-radius: 100%;
-    background-color: #C7CAC4;
+    background-color: #5F5253;
+    color: #C7CAC4;
 }
 
 .buttons {
@@ -48,14 +49,14 @@ button {
     width: 25%;
     /* allows for a 3D transition when cards are clicked */
     transform-style: preserve-3d;
-    /* shorthand for various transition properties that have been combined into one */
-    transition: all 0.8s ease;
+    /* changed this because i wasn't noticing huge difference as i played around with the settings. left at one second even. */
+    transition: 1s;
 }
 
-/* this provides a visual effect when the card is clicked (by applying a .2s transition to its size). right now it only seems to be doing it on the transition from back to front, not front to back, but that should be fine because during game play, the cards should always flip back over on their own. somehow this actually stopped working and I'm not sure why. Take out if that's still true by the end. */
+/* this provides a visual effect when the card is clicked (by applying a .2s transition to its size). right now it only seems to be doing it on the transition from back to front, not front to back, but that should be fine because during game play, the cards should always flip back over on their own. somehow this actually stopped working and I'm not sure why. Take out if that's still true by the end. still not working after another day of edits. */
 .card:active {
     transform: scale(1);
-    transition: transform .2s;
+    transition: transform 1s;
 }
 
 .cardFront, 
@@ -67,16 +68,16 @@ button {
     border-radius: 10%;
     /* relative position of the parent element allows us to position the children absolutely, thereby stacking the elements on top of each other (see position: absolute in face class) */
     position: absolute;
-    /* controls the reverse side of just the respective element; keeping either cardFront or cardBack visible will cause the image to flicker during the 3D transition */
+    /* controls the reverse side of just the respective element; keeping either cardFront or cardBack visible will cause the image to flicker during the 3D transition. if i don't include this, then when cards flip, it'll just show the reverse image of the original card side. with backface-visibility hidden, the flipped card will show the other image. */
     backface-visibility: hidden;
 }
 
 .cardBack {
-    /* I still don't really understand why this and the .card.flip are needed, but they both are... */
+    /* since backface-visibility is set, flipping a card over flips BOTH cards over entirely and shows the blank side of BOTH cards. by transforming .cardBack by 180deg, i'm actually flipping over cardBack to show the original image. it really helps me to think of this as if i have two images printed on two pieces of paper in front of me. if i stack them image side up, and turn them over, the other side is blank. i need to rotate the bottom image by 180deg in order for that image to show up on the other side of the top image. */
     transform: rotateY(180deg);
 }
 
 .card.flip {
-    /* this rotates the card 180deg */
+    /* this rotates the card 180deg. using add and remove in js, i'm basically turning this transform on and off */
     transform: rotateY(180deg);
 }

@@ -12,24 +12,40 @@
 <body>
     <header>
         <h1>Memory Game</h1>
-        <p id="results-display"></p>
-    </header>
+        <!-- this is where i'm going to print the message "you found a match of __ bird!" -->
+        <p>Instructions: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed recusandae esse mollitia, voluptas modi sit quos provident repellat illo aperiam consectetur repellendus aut, deleniti soluta aliquam laudantium enim. Dolorum, rem.</p>
+        <p id="match-success"></p>
+        <!-- this is where i'm going to print the final message re whether player lost or won -->
+        <p id="results"></p>
+    </header> 
 
     <!-- maybe have a larger parent container to also house the two icons? -->
     <section>
         <div class="buttons">
-            <button id="helpButton">Help</button>
-            <button id="resetButton">Reset</button>
-            <button id="playButton">Play</button>
-            <button id="turns">Turns</button>
-            <button id="matches">Matches</button>
+            <button id="help-button">Help</button>
+            <button id="reset-button">Reset</button>
+            <!-- i don't think i actually need this because i'm using max turns rather than a timer/countdown -->
+            <!-- <button id="playButton">Play</button> -->
+            <!-- i think i'm going to replace these buttons with the p section below -->
+            
+            <!-- this is where i'm going to display the turns take/total possible turns -->
+            <button id="turns-tally">0 / 10 turns</button>
+            <!-- this is where i'm going to display the total matches found/total matches possible -->
+            <button id="matches-tally">0 / 6 matches</button>
+
+            <!-- <p id="turns">turns</p>
+            <p id="matches">matches</p> -->
         </div>
+    </section>
+
+    <section>
+<!-- ideally eventually put the ps here, but i dont want to lose all of the formatting in css for the time being -->
     </section>
 
     <section>
         <!-- maybe will need to add IDs to each card to randomize them later? look back at rock paper scissors and the Math method for ideas -->
         <div class="board">
-            <div class="card">
+            <div class="card" id="Franklin's Gull">
                 <img class="cardBack" src="https://i.imgur.com/0xEnnXn.jpeg"
                     alt="An illustration of a Franklin's Gull from the board game Wingspan.">
                 <img class="cardFront"
@@ -38,7 +54,7 @@
                 <!-- https://wingsplain.com/wp-content/uploads/Franklins-Gull.png -->
             </div>
 
-            <div class="card">
+            <div class="card" id="Franklin's Gull">
                 <img class="cardBack" src="https://i.imgur.com/0xEnnXn.jpeg"
                     alt="An illustration of a Franklin's Gull from the board game Wingspan.">
                 <img class="cardFront"
@@ -46,7 +62,7 @@
                     alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
             </div>
 
-            <div class="card">
+            <div class="card" id="Peregrine Falcon">
                 <img class="cardBack" src="https://i.imgur.com/t7sxdaL.jpeg"
                     alt="An illustration of a Peregrine Falcon from the board game Wingspan.">
                 <img class="cardFront"
@@ -55,7 +71,7 @@
                 <!-- https://www.gamescapesf.store/product/wingspan/7383 -->
             </div>
 
-            <div class="card">
+            <div class="card" id="Peregrine Falcon">
                 <img class="cardBack" src="https://i.imgur.com/t7sxdaL.jpegsvg"
                     alt="An illustration of a Peregrine Falcon from the board game Wingspan.">
                 <img class="cardFront"
@@ -63,7 +79,7 @@
                     alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
             </div>
 
-            <div class="card">
+            <div class="card" id="Eastern Phoebe">
                 <img class="cardBack" src="https://i.imgur.com/BmJiVkp.png"
                     alt="An illustration of an Eastern Phoebe from the board game Wingspan.">
                 <img class="cardFront"
@@ -72,7 +88,7 @@
                 <!-- https://wingspan.rulepop.com/ -->
             </div>
 
-            <div class="card">
+            <div class="card" id="Eastern Phoebe">
                 <img class="cardBack" src="https://i.imgur.com/BmJiVkp.png"
                     alt="An illustration of an Eastern Phoebe from the board game Wingspan.">
                 <img class="cardFront"
@@ -80,7 +96,7 @@
                     alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
             </div>
 
-            <div class="card">
+            <div class="card" id="Spotted Sandpiper">
                 <img class="cardBack" src="https://i.imgur.com/1Yt9CJI.jpeg"
                     alt="An illustration of a Spotted Sandpiper from the board game Wingspan.">
                 <img class="cardFront"
@@ -89,7 +105,7 @@
                 <!-- https://stonemaiergames.com/games/wingspan/rules/ -->
             </div>
 
-            <div class="card">
+            <div class="card" id="Spotted Sandpiper">
                 <img class="cardBack" src="https://i.imgur.com/1Yt9CJI.jpeg"
                     alt="An illustration of a Spotted Sandpiper from the board game Wingspan.">
                 <img class="cardFront"
@@ -97,7 +113,7 @@
                     alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
             </div>
 
-            <div class="card">
+            <div class="card" id="Gray Catbird">
                 <img class="cardBack" src="https://i.imgur.com/4A3EKZN.png"
                     alt="An illustration of a Gray Catbird from the board game Wingspan.">
                 <img class="cardFront"
@@ -106,7 +122,7 @@
                 <!-- https://www.gamersdecide.com/articles/wingspan-best-birds -->
             </div>
 
-            <div class="card">
+            <div class="card" id="Gray Catbird">
                 <img class="cardBack" src="https://i.imgur.com/4A3EKZN.png"
                     alt="An illustration of a Gray Catbird from the board game Wingspan.">
                 <img class="cardFront"
@@ -114,7 +130,7 @@
                     alt="An illustration of a Scissor-Tailed Flycatcher from the board game Wingspan.">
             </div>
 
-            <div class="card">
+            <div class="card" id="Killdeer">
                 <img class="cardBack" src="https://i.imgur.com/v9od7Fa.jpeg"
                     alt="An illustration of a Killdeer from the board game Wingspan.">
                 <img class="cardFront"
@@ -123,7 +139,7 @@
                 <!-- https://www.cbr.com/wingspan-best-cards/ -->
             </div>
 
-            <div class="card">
+            <div class="card" id="Killdeer">
                 <img class="cardBack" src="https://i.imgur.com/v9od7Fa.jpeg"
                     alt="An illustration of a Killdeer from the board game Wingspan.">
                 <img class="cardFront"
