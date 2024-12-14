@@ -1,8 +1,11 @@
-/* I already can't remember where I saw this suggested, but I think I'll get rid of it? I'm too tired to commit to anything right now. */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
 }
 
 .roboto-condensed {
@@ -13,30 +16,40 @@
 }
 
 body {
-    display: flex;
+    margin: 0;
+    height: 100vh;
     background: #211C1D;
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
-    /* text-align majorly fucks up the alignment of the flipped card */
-    /* text-align: center; */
+    /* display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    /* centers the board on the page FINALLY!! */
+    justify-content: center; */
+}
+
+.title-container {
+    text-align: center;
+    /* changing the width bumps the entire container down and to the right, which makes it fall behind the card board */
+    /* width: 700px; */
+    margin: auto;
+    width: 1000px;
 }
 
 h1 {
     font-size: 80px;
-    margin: 20px; 
+    margin: 20px;
 }
 
 p {
-    font-size: 30px;
+    font-size: 20px;
     margin: 20px;
     padding: 10px;
-    /* border only when text is present */
-    /* border: 2px solid white; */
 }
 
 button {
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     margin: 20px;
     border: 0px;
     border-radius: 100%;
@@ -44,19 +57,15 @@ button {
     color: #C7CAC4;
 }
 
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 40px;
-}
-
-.board {
-    width: 700px;
-    height: 700px;
+.board-container {
+    width: 800px;
+    height: 800px;
     margin: 50px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    /* centers the board on the page FINALLY!! */
+    justify-content: center;
     position: absolute;
     /* W3 CSS Top/Left Properties: If position absolute:
         "The top property sets the top edge of an element to a unit above/below the top edge of its nearest positioned ancestor. 
@@ -66,28 +75,33 @@ button {
     /* SheCodes: "The transform: translate(-50%, -50%); CSS property is used to move an element horizontally and vertically by a specified percentage of its own size. It is often used to center an element both horizontally and vertically within its parent container. */
     /* i originally had this set to 50/50 but adjusting it to figure out how to make this game look normal... */
     transform: translate(-50%, -20%);
+    font-size: 40px;
+}
+
+.tally-container {
+    /* this means that the board-container will take up the entire first row (from column 1 to column -1 which is the very last column) */
+    grid-column: 1 / -1;
+    /* adding flexbox back in here so that the tallies are on either side of the board container width */
+    display: flex;
+    justify-content: space-between;
 }
 
 .card {
-    /* relative position of the parent element allows us to position the children absolutely, thereby stacking the elements on top of each other (see position: absolute in card front/back class) */
     position: relative;
-    /* this got the 4x3 grid */
-    width: 25%;
-    height: 25%;
+    width: 200px;
+    height: 200px;
     margin: 20px;
-    /* allows for a 3D transition when cards are clicked */
     transform-style: preserve-3d;
-    /* changed this because i wasn't noticing huge difference as i played around with the settings. left at one second even. */
-    transition: 1s;
+    /* transition into card position */
+    transition: 2s;
 }
 
-/* this provides a visual effect when the card is clicked (by applying a .2s transition to its size). right now it only seems to be doing it on the transition from back to front, not front to back, but that should be fine because during game play, the cards should always flip back over on their own. somehow this actually stopped working and I'm not sure why. Take out if that's still true by the end. still not working after another day of edits. */
 .card:active {
-    transform: scale(1);
-    transition: transform 1s;
+    transform: scale(.9);
+    transition: transform .2s;
 }
 
-.cardFront, 
+.cardFront,
 .cardBack {
     width: 100%;
     /* to make the cards square (in order to keep the card shape of the Wingspan image */
@@ -109,3 +123,15 @@ button {
     /* this rotates the card 180deg. using add and remove in js, i'm basically turning this transform on and off */
     transform: rotateY(180deg);
 }
+
+/* @media (max-width: 480px) {
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+
+@media (min-width: 768px) {
+
+} */
