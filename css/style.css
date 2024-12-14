@@ -1,43 +1,11 @@
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
-}
-
-html {
-    min-height: 100vh;
-}
-
-.roboto-condensed {
-    font-family: "Roboto Condensed", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-}
-
-body {
-    margin: 0;
-    height: 100vh;
-    background: #211C1D;
-    color: white;
     font-family: 'Roboto Condensed', sans-serif;
-    /* display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
-    /* centers the board on the page FINALLY!! */
-    justify-content: center; */
-}
-
-.title-container {
-    text-align: center;
-    /* changing the width bumps the entire container down and to the right, which makes it fall behind the card board */
-    /* width: 700px; */
-    margin: auto;
-    width: 1000px;
 }
 
 h1 {
     font-size: 80px;
+    color: #DC8166;
     margin: 20px;
 }
 
@@ -45,93 +13,72 @@ p {
     font-size: 20px;
     margin: 20px;
     padding: 10px;
+    color: white;
+}
+
+body {
+    height: 100vh;
+    margin: 10px;
+    background: #211C1D;
+    display: flex;
+    align-items: center;
 }
 
 button {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     margin: 20px;
     border: 0px;
     border-radius: 100%;
     background-color: #5F5253;
-    color: #C7CAC4;
+    color: white;
 }
 
 .board-container {
-    width: 800px;
-    height: 800px;
-    margin: 50px;
+    margin: 20px;
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 10px;
-    /* centers the board on the page FINALLY!! */
     justify-content: center;
-    position: absolute;
-    /* W3 CSS Top/Left Properties: If position absolute:
-        "The top property sets the top edge of an element to a unit above/below the top edge of its nearest positioned ancestor. 
-        "The left property sets the left edge of an element to a unit to the left of the left edge of its nearest positioned ancestor." */
-    top: 50%;
-    left: 50%;
-    /* SheCodes: "The transform: translate(-50%, -50%); CSS property is used to move an element horizontally and vertically by a specified percentage of its own size. It is often used to center an element both horizontally and vertically within its parent container. */
-    /* i originally had this set to 50/50 but adjusting it to figure out how to make this game look normal... */
-    transform: translate(-50%, -20%);
+    color: white;
     font-size: 40px;
 }
 
 .tally-container {
-    /* this means that the board-container will take up the entire first row (from column 1 to column -1 which is the very last column) */
     grid-column: 1 / -1;
-    /* adding flexbox back in here so that the tallies are on either side of the board container width */
     display: flex;
     justify-content: space-between;
 }
 
 .card {
     position: relative;
-    width: 200px;
     height: 200px;
-    margin: 20px;
+    width: 200px;
     transform-style: preserve-3d;
-    /* transition into card position */
-    transition: 2s;
+    transition: 1s;
+}
+
+.cardFront,
+.cardBack {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #96AFC5;
+    border-radius: 5%;
+    backface-visibility: hidden;
+}
+
+.cardBack {
+    transform: rotateY(180deg);
+}
+
+.card.flip {
+    transform: rotateY(180deg);
 }
 
 .card:active {
     transform: scale(.9);
     transition: transform .2s;
 }
-
-.cardFront,
-.cardBack {
-    width: 100%;
-    /* to make the cards square (in order to keep the card shape of the Wingspan image */
-    aspect-ratio: 1/1;
-    border: 1px solid #96AFC5;
-    border-radius: 10%;
-    /* relative position of the parent element allows us to position the children absolutely, thereby stacking the elements on top of each other (see position: absolute in face class) */
-    position: absolute;
-    /* controls the reverse side of just the respective element; keeping either cardFront or cardBack visible will cause the image to flicker during the 3D transition. if i don't include this, then when cards flip, it'll just show the reverse image of the original card side. with backface-visibility hidden, the flipped card will show the other image. */
-    backface-visibility: hidden;
-}
-
-.cardBack {
-    /* since backface-visibility is set, flipping a card over flips BOTH cards over entirely and shows the blank side of BOTH cards. by transforming .cardBack by 180deg, i'm actually flipping over cardBack to show the original image. it really helps me to think of this as if i have two images printed on two pieces of paper in front of me. if i stack them image side up, and turn them over, the other side is blank. i need to rotate the bottom image by 180deg in order for that image to show up on the other side of the top image. */
-    transform: rotateY(180deg);
-}
-
-.card.flip {
-    /* this rotates the card 180deg. using add and remove in js, i'm basically turning this transform on and off */
-    transform: rotateY(180deg);
-}
-
-/* @media (max-width: 480px) {
-
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-
-}
-
-@media (min-width: 768px) {
-
-} */
