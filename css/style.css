@@ -5,14 +5,39 @@
     box-sizing: border-box;
 }
 
+.roboto-condensed {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
 body {
     display: flex;
-    background: #6996BF;
+    background: #211C1D;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    /* text-align majorly fucks up the alignment of the flipped card */
+    /* text-align: center; */
+}
+
+h1 {
+    font-size: 80px;
+    margin: 20px; 
+}
+
+p {
+    font-size: 30px;
+    margin: 20px;
+    padding: 10px;
+    /* border only when text is present */
+    /* border: 2px solid white; */
 }
 
 button {
     width: 80px;
-    height: 50px;
+    height: 80px;
+    margin: 20px;
     border: 0px;
     border-radius: 100%;
     background-color: #5F5253;
@@ -29,7 +54,7 @@ button {
 .board {
     width: 700px;
     height: 700px;
-    margin: auto;
+    margin: 50px;
     display: flex;
     flex-wrap: wrap;
     position: absolute;
@@ -39,14 +64,17 @@ button {
     top: 50%;
     left: 50%;
     /* SheCodes: "The transform: translate(-50%, -50%); CSS property is used to move an element horizontally and vertically by a specified percentage of its own size. It is often used to center an element both horizontally and vertically within its parent container. */
-    transform: translate(-50%, -50%);
+    /* i originally had this set to 50/50 but adjusting it to figure out how to make this game look normal... */
+    transform: translate(-50%, -20%);
 }
 
 .card {
-    /* relative position of the parent element allows us to position the children absolutely, thereby stacking the elements on top of each other (see position: absolute in face class) */
+    /* relative position of the parent element allows us to position the children absolutely, thereby stacking the elements on top of each other (see position: absolute in card front/back class) */
     position: relative;
     /* this got the 4x3 grid */
     width: 25%;
+    height: 25%;
+    margin: 20px;
     /* allows for a 3D transition when cards are clicked */
     transform-style: preserve-3d;
     /* changed this because i wasn't noticing huge difference as i played around with the settings. left at one second even. */
@@ -61,7 +89,7 @@ button {
 
 .cardFront, 
 .cardBack {
-    width: 90%;
+    width: 100%;
     /* to make the cards square (in order to keep the card shape of the Wingspan image */
     aspect-ratio: 1/1;
     border: 1px solid #96AFC5;
