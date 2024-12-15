@@ -18,21 +18,18 @@
 <body>
     <div class="title-container">
         <h1>OH, FLOCK!</h1>
-        <button id="reset-button">Reset</button>
+        <button id="reset-button" visible>Reset</button>
         <!-- <button id="help-button">Help</button> -->
         <p>Click on a card to reveal the bird on the other side! If you click on a second card and the birds match, you've found a pair. If the two birds don't match, the cards will flip back over, so do your best to remember their placement. Find all bird pairs on the board before you've used up all of your turns, and you've won! </p>
         <p id="match-success"></p>
         <p id="results"></p>
+        <button id="play-again" hidden>Play Again</button>
     </div>
 
     <div class="board-container">
         <div class="tally-container">
-            <div id="turns-tally">
-                0 / 10 turns
-            </div>
-            <div id="matches-tally">
-                0 / 6 matches
-            </div>
+            <div id="turns-tally">0 / 10 turns</div>
+            <div id="matches-tally">0 / 6 matches</div>
         </div>
         <div class="card" id="Franklin's Gull">
             <img class="cardBack" src="https://i.imgur.com/0xEnnXn.jpeg"
