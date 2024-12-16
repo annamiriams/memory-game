@@ -1,10 +1,11 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const turnsAvailable = 10;
-const matchesAvailable = 2;
+const matchesAvailable = 6;
 
 /*---------------------------- Variables (state) ----------------------------*/
 
+// startingState takes care of these variables. commented out for now in case i decide to go back to this formatting later
 // let turnsTally = 0;
 // let matchesTally = 0;
 // let firstCard;
@@ -23,13 +24,15 @@ const resultsMsg = document.querySelector('#results');
 const buttons = document.querySelectorAll('button');
 const resetButton = document.querySelector('#reset-button');
 const playButton = document.querySelector('#play-again');
+const creditsModal = document.querySelector('.close');
+// const creditsButton = document.querySelector('#credits');
 
 /*-------------------------------- Functions --------------------------------*/
 
 const flipCard = function () {
     if (gameOver === true) {
         return;
-    }; 
+    };
     if (boardFrozen === false) {
         this.classList.add('flip');
         if (cardFlipped === false) {
@@ -73,7 +76,7 @@ const flipCardsBack = function () {
         secondCard.classList.remove('flip');
         boardFrozen = false;
     }, '1400');
-    // two lines necessary because of the double click match bug fix 
+    // two lines necessary because of the double click match bug fix; except i screwed it up and this doesn't actually work!!!
     // firstCard.addEventListener('click', flipCard);
     // secondCard.addEventListener('click', flipCard);
 };
@@ -94,7 +97,7 @@ const renderResults = function () {
         resetButton.setAttribute('hidden', true);
         endGame();
     } else if (turnsTally === turnsAvailable) {
-        resultsMsg.textContent = 'You lost! Try again?';
+        resultsMsg.textContent = 'Oh, flock! You lost! Try again?';
         endGame();
     } else {
         resultsMsg.textContent = '';
@@ -107,27 +110,7 @@ const endGame = function () {
 };
 
 const resetGame = function () {
-    // all of starting state was in here as a way to reset everything. and variables at the top were defined as t/f or 0.
     startingState();
-    
-    // starting state() replaces all commented out lines below:
-    // turnsTally = 0;
-    // matchesTally = 0; 
-    // let gameOver = false;
-    // let cardFlipped = false;
-    // let boardFrozen = false; 
-    // shuffleCards();
-    // addEventListenersToAllCards();
-    // removeFlipClassFromAllCards(); 
-
-    // turnsTallyIcon.textContent = `${turnsTally} / ${turnsAvailable} turns`;
-    // matchesTallyIcon.textContent = `${matchesTally} / ${matchesAvailable} matches`;
-    // resultsMsg.textContent = '';
-    // matchSuccessMsg.textContent = '';
-
-    // look up: js pause
-    // this works but it's pretty glitchy/weird looking when it shuffles and flips
-
     playButton.setAttribute('hidden', true);
     resetButton.removeAttribute('hidden');
 };
@@ -153,10 +136,7 @@ const shuffleCards = function () {
     });
 };
 
-// i don't think i need this called here since it's called in starting state?
-// shuffleCards();
-
-// why would i even have this? endGame is literally just written to call on another function? that seems unnecessary. it also can't go at the beginning because then the functions called within it won't work.
+// this is feeling a little silly and counterintuitive? resetGame is basically just written to call on another function? that seems unnecessary. it also can't go at the beginning because then the functions called within it won't work. i need to think about whether this "cleaning up of code" is actually doing that or making it messier...
 const startingState = function () {
     turnsTally = 0;
     matchesTally = 0;
@@ -170,24 +150,59 @@ const startingState = function () {
     shuffleCards();
     addEventListenersToAllCards();
     removeFlipClassFromAllCards();
+
+    cards.forEach((card) => {
+        card.addEventListener('click', flipCard);
+        card.addEventListener('mouseover', function () {
+            this.style.cursor = 'pointer';
+        });
+    });
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', resetGame);
+        button.addEventListener('mouseover', function () {
+            this.style.cursor = 'pointer';
+        });
+    });
 };
 
 startingState();
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-// think about adding these somehow to starting state
-
-cards.forEach((card) => {
-    card.addEventListener('click', flipCard);
-    card.addEventListener('mouseover', function () {
-        this.style.cursor = 'pointer';
+// honestly maybe scrap this. it might not be worth it and it's not working yet. don't prioritize it.
+const modal = function () {
+    // this isn't working how i want it to (click anywhere and it'll close, rather than on the x)
+    addEventListener('click', (event) => {
+        document.querySelector('.modal-container').style.display = 'none';
     });
-});
-
-buttons.forEach((button) => {
-    button.addEventListener('click', resetGame);
-    button.addEventListener('mouseover', function () {
-        this.style.cursor = 'pointer';
+    addEventListener('load', (event) => {
+        document.querySelector('.modal-container').style.display = 'flex';
     });
-});
+    addEventListener('mouseover', (event) => {
+        creditsModal.style.cursor = 'pointer';
+    });
+};
+
+modal();
+
+// const openCredits = function () {  
+//     addEventListener('click', (event) => {
+//         document.querySelector('.modal-container').style.display = 'flex';
+//     });
+//     addEventListener('mouseover', (event) => {
+//         creditsModal.style.cursor = 'pointer';
+//     });
+// };
+
+// creditsButton.addEventListener('click', (event) => {
+//     document.querySelector('.modal-container').style.display = 'flex';
+// });
+
+// this isn't working for the credits button
+// document.querySelector('#credits').addEventListener('click', function() {
+//     console.log('test');
+//     document.querySelector('.modal-container').style.display = 'flex';
+
+// });
+

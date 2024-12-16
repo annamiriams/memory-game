@@ -3,10 +3,29 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+body {
+    height: 100vh;
+    margin: 10px;
+    background: #211C1D;
+    display: flex;
+    align-items: center;
+}
+
 h1 {
     font-size: 100px;
     color: #DC8166;
     margin: 20px;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+    border: 0px;
+    border-radius: 100%;
+    background-color: #5F5253;
+    color: white;
+    font-size: 18px;
 }
 
 p {
@@ -29,25 +48,6 @@ p {
     color: #759DC0;
     /* color: #96AFC5; */
     font-weight: 900;
-    }
-
-body {
-    height: 100vh;
-    margin: 10px;
-    background: #211C1D;
-    display: flex;
-    align-items: center;
-}
-
-button {
-    width: 60px;
-    height: 60px;
-    margin: 20px;
-    border: 0px;
-    border-radius: 100%;
-    background-color: #5F5253;
-    color: white;
-    font-size: 18px;
 }
 
 .board-container {
@@ -80,7 +80,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     border: 1px solid #96AFC5;
     border-radius: 5%;
     backface-visibility: hidden;
@@ -101,11 +101,67 @@ button {
     transition: transform .2s;
 }
 
+/* modal */
+.modal-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal-contents {
+    width: 50%;
+    height: 50%;
+    background-color: #273F54;
+    border-radius: 10px;
+    padding: 20px;
+    color: #96AFC5;
+    font-size: 30px;
+    font-weight: 800;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#credits {
+    font-size: 40px;
+}
+
+a:link,
+a:visited {
+    color: #43729D;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+/* still not quite working yet */
+.close {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-family: 'Roboto', serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 100;
+    transform: rotate(45deg);
+}
+
 /* why isn't this media query working?? i don't see any responsive design occuring */
 @media (max-width: 600px) {
     .board-container {
         grid-template-columns: repeat(2, auto);
     }
+
     .tally-container {
         flex-direction: column;
         align-items: center;
