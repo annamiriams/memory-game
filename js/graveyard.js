@@ -1,3 +1,25 @@
+// newer graveyard here:
+
+// work out how to add a credits button, like the reset button, but when x is clicked, don't run startingState()
+// css: <button id="credits">Credits</button>
+
+creditsButton.addEventListener('click', (event) => {
+    console.log('test');
+    modal.style.display = 'flex';
+});
+
+
+
+
+
+
+
+
+
+
+
+// original graveyard below:
+
 /*
 As a player, I want to see a landing page when I arrive on the game’s website to know that I’m ready to play the game.
 As a player, I want to clearly see the instructions for the game presented, and then be able to click “x” to minimize those instructions. 
