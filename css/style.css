@@ -4,17 +4,32 @@
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 100px;
     color: #DC8166;
     margin: 20px;
 }
 
 p {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 500;
     margin: 20px;
     padding: 10px;
     color: white;
 }
+
+#match-success {
+    font-size: 24px;
+    /* color: #B74B2A; */
+    color: #4D7DA8;
+    font-weight: 600;
+}
+
+#results {
+    font-size: 40px;
+    color: #759DC0;
+    /* color: #96AFC5; */
+    font-weight: 900;
+    }
 
 body {
     height: 100vh;
@@ -32,6 +47,7 @@ button {
     border-radius: 100%;
     background-color: #5F5253;
     color: white;
+    font-size: 18px;
 }
 
 .board-container {
