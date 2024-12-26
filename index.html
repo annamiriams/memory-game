@@ -18,13 +18,15 @@
 <body>
     <div class="title-container">
         <h1>OH, FLOCK!</h1>
+        <button id="help-button" visible>Help</button>
         <button id="reset-button" visible>Reset</button>
-        <p>Click on a card to reveal a bird on the other side. If you click on a second card and the birds match, you've
+        <p id="instructions">Click on a card to reveal a bird on the other side. If you click on a second card and the
+            birds match, you've
             found a pair. If the two birds don't match, the cards will flip back over, so do your best to remember their
             placement. Find all bird pairs on the board before you've used up all of your turns, and you've won! </p>
         <p id="match-success"></p>
         <p id="results"></p>
-        <button id="play-again" hidden>Play Again</button>
+        <button id="play-again-button" hidden>Play Again</button>
     </div>
 
     <div class="board-container">
@@ -124,8 +126,31 @@
                 Credits
             </p>
             <p>
-                All images used in this application are borrowed from the board game Wingspan, which was designed by Elizabeth Hargrave and illustrated by Natalia Rojas, Ana María Martínez Jaramillo, and Beth Sobel. Prints of the birds used in the game can be found at <a href="https://www.nataliarojasart.com/" target="_blank">nataliarojasart.com</a> and <a href="https://www.anammartinez.com/" target="_blank">anammartinez.com</a>.
+                All images used in this application are borrowed from the board game Wingspan, which was designed by
+                Elizabeth Hargrave and illustrated by Natalia Rojas, Ana María Martínez Jaramillo, and Beth Sobel.
+                Prints of the birds used in the game can be found at <a href="https://www.nataliarojasart.com/"
+                    target="_blank">nataliarojasart.com</a> and <a href="https://www.anammartinez.com/"
+                    target="_blank">anammartinez.com</a>.
             </p>
+        </div>
+    </div>
+
+    <div class="mobile-container">
+        <div class="mobile-modal-contents">
+            <h1 id="help-title">
+                Oh, Flock!
+            </h1>
+            <h2>
+                A Wingspan-themed, single-player memory game.
+            </h2>
+            <p>
+                Click on a card to reveal a bird on the other side. If you click on a second card and the birds match,
+                you've found a pair. If the two birds don't match, the cards will flip back over, so do your best to remember
+                their placement. Find all bird pairs on the board before you've used up all of your turns, and you've won!
+            </p>
+            <button id="play-now-button">
+                Play now!
+            </button>
         </div>
     </div>
 </body>

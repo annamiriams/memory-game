@@ -16,10 +16,11 @@ const turnsTallyIcon = document.querySelector('#turns-tally');
 const resultsMsg = document.querySelector('#results');
 const buttons = document.querySelectorAll('button');
 const resetButton = document.querySelector('#reset-button');
-const playButton = document.querySelector('#play-again');
+const playAgainButton = document.querySelector('#play-again-button');
 const modal = document.querySelector('.modal-container');
 const modalX = document.querySelector('.close');
 const creditsButton = document.querySelector('#credits');
+
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -93,12 +94,12 @@ const renderResults = function () {
 
 const endGame = function () {
     gameOver = true;
-    playButton.removeAttribute('hidden');
+    playAgainButton.removeAttribute('hidden');
 };
 
 const resetGame = function () {
     startingState();
-    playButton.setAttribute('hidden', true);
+    playAgainButton.setAttribute('hidden', true);
     resetButton.removeAttribute('hidden');
 };
 
@@ -147,11 +148,6 @@ const startingState = function () {
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-modalX.addEventListener('click', (event) => {
-    modal.style.display = 'none';
-    startingState();
-});
-
 addEventListener('load', (event) => {
     modal.style.display = 'flex';
 });
@@ -160,3 +156,27 @@ addEventListener('mouseover', (event) => {
     modalX.style.cursor = 'pointer';
 });
 
+modalX.addEventListener('click', (event) => {
+    modal.style.display = 'none';
+    startingState();
+});
+
+// add event listener to close mobile modal and resetgame() when button is pressed
+
+const helpModal = document.querySelector('.mobile-container');
+const playNowButton = document.querySelectorAll('#play-now-button');
+
+helpModal.addEventListener('click', (event) => {
+    helpModal.style.display = 'none';
+    startingState();
+});
+
+// add event listener for helpButton to populate instructions when hover over
+
+const helpButton = document.querySelector('#help-button');
+
+helpButton.addEventListener('click', (event) => {
+    helpModal.style.display = 'inline'
+});
+
+// i still need to figure out how to allow for a button click to NOT reset the game...

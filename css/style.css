@@ -17,6 +17,14 @@ h1 {
     margin: 20px;
 }
 
+h2 {
+    font-size: 22px;
+    font-style: italic;
+    color: #759DC0;
+    margin: 20px;
+    padding: 10px;
+}
+
 button {
     width: 60px;
     height: 60px;
@@ -98,6 +106,8 @@ p {
     transition: transform .2s;
 }
 
+/* credits modal */
+
 .modal-container {
     width: 100%;
     height: 100%;
@@ -150,4 +160,123 @@ a:visited {
     font-weight: 100;
     /* necessary because the character is actually a '+' */
     transform: rotate(45deg);
+}
+
+/* help modal */
+.mobile-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-modal-contents {
+    width: 80%;
+    background-color: #273F54;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    
+}
+
+#play-now-button {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    border: 0px;
+    border-radius: 100%;
+    background-color: #5F5253;
+    color: white;
+    font-size: 20px;
+}
+
+/* media queries */
+
+/* mobile */
+
+@media (max-width: 480px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    #instructions,
+    #match-success,
+    #results {
+        display: none;
+    }
+
+    .tally-container {
+        font-size: 20px;
+    }
+
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .board-container {
+        margin: 20px;
+        grid-template-columns: repeat(3, auto);
+        grid-gap: 4px;
+        width: 100vw;
+    }
+
+    .card {
+        height: 140px;
+        width: 140px;
+    }
+
+    .cardBack,
+    .cardFront {
+        height: 140px;
+        width: 140px;
+    }
+
+    .modal-container {
+        display: none;
+    }
+}
+
+/* tablet */
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #help-button {
+        display: none;
+    }
+
+    /* .mobile-container {
+        display: none;
+    } */
+}
+
+/* desktop */
+
+@media (min-width: 768px) {
+    #help-button {
+        display: none;
+    }
+
+    .mobile-container {
+        display: none;
+    }
+
+    
 }
